@@ -5,10 +5,10 @@ import uuid
 import threading
 
 app = Flask(__name__)
-DOWNLOAD_DIR = "downloads"
+DOWNLOAD_DIR = "/tmp/download" #render only allows writting to tmp dir.
 os.makedirs(DOWNLOAD_DIR, exist_ok=True)
 
-def delete_file_later(filepath, delay=60):
+def delete_file_later(filepath, delay=120): 
     def remove():
         try:
             if os.path.exists(filepath):
@@ -38,7 +38,7 @@ def info():
             {
                 "format_id": f["format_id"],
                 "resolution": f.get("resolution") or f.get("height", "Unknown"),
-                "filesize": f.get("filesize") or 0
+                "filesize": f.get("filesize",0) or 0
             }
             for f in info['formats'] if f.get('filesize') and f.get('vcodec') != 'none'
         ]
