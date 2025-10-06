@@ -5,11 +5,14 @@ casue yt now block automated requests especially from cloud ip's like here Rende
 but you can download videos from other platfroms.
 
 # YouTube Video Downloader
+![demofront](./images/front.png)
 
 A simple Flask-based web application that allows users to download YouTube videos not only youtube but also any kind of videos that yt-dlp officially supports. 
 
 for examples some of are : 
 ---
+Instagram 
+
 Vimeo
 
 Dailymotion
@@ -29,7 +32,16 @@ The app uses `yt-dlp` to download videos in different qualities, preview thumbna
 - **Download YouTube videos**: Users can download videos in low, medium, or best quality.
 - **Preview thumbnails**: Shows a preview thumbnail of the video before downloading.
 - **Automatic cleanup**: Downloaded videos are automatically deleted after 1 minute to prevent server clutter.
-![demo](./images/demo.png)
+### copy link 
+![demo1](./images/demo1.png)
+### paste the same link
+![demo2](./images/demo2.png)
+### select any quality
+![demo2](./images/demo3.png)
+### then just download
+### save and done.
+![demo5](./images/demo4.png)
+
 ## Tech Stack
 - **Backend**: Flask (Python web framework)
 - **Video Downloading**: yt-dlp (for downloading videos)
