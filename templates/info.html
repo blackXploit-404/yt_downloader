@@ -10,13 +10,19 @@
         <img src="{{ thumbnail }}" alt="Video Thumbnail" class="thumbnail">
         <h2>{{ title }}</h2>
 
-        <form action="/download" method="POST">
+        <!--  action and added Unknown Size fallback -->
+        <form action="{{ url_for('download') }}" method="POST">
             <input type="hidden" name="url" value="{{ url }}">
             <label for="format_id">Select Quality:</label>
             <select name="format_id" required>
                 {% for f in formats %}
                 <option value="{{ f.format_id }}">
-                    {{ f.resolution }} | {{ (f.filesize / 1024 / 1024)|round(2) }} MB
+                    {{ f.resolution }} |
+                    {% if f.filesize and f.filesize > 0 %}
+                        {{ (f.filesize / 1024 / 1024)|round(2) }} MB
+                    {% else %}
+                        Unknown Size
+                    {% endif %}
                 </option>
                 {% endfor %}
             </select>
@@ -26,7 +32,8 @@
         <footer>
             <img src="https://raw.githubusercontent.com/yt-dlp/yt-dlp/master/.github/banner.svg" alt="yt-dlp Logo">
             <p>Powered by yt-dlp</p>
-          </footer>
+            <p>Developed with ❤ by Surajit</p>
+        </footer>
     </div>
 </body>
 </html>
